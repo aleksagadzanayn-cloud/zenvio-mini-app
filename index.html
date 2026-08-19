@@ -352,6 +352,43 @@ font-size:12px;
     </section>
   </div>
 
+  <style>
+.nav {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    margin-top: 16px;
+    background: rgba(20, 10, 50, 0.95);
+    border: 1px solid rgba(160, 100, 255, 0.45);
+    border-radius: 18px;
+    overflow-x: auto;
+    justify-content: center;
+}
+
+.nav button {
+    flex: 1;
+    min-width: 75px;
+    padding: 9px 6px;
+    border: 1px solid rgba(160, 100, 255, 0.4);
+    border-radius: 14px;
+    background: rgba(90, 50, 150, 0.45);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.nav button.active {
+    background: linear-gradient(135deg, #7b3cff, #a855f7);
+    border-color: #c084fc;
+}
+
+.nav button span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 3px;
+}
+</style>
+  
   <nav class="nav">
     <button class="active" onclick="toast('Главная')"><span>⌂</span>Главная</button>
     <button onclick="toast('Подарки')"><span>🎁</span>Подарки</button>
