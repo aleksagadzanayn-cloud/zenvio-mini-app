@@ -469,7 +469,22 @@ function closeStars() {
 }
 
 function selectStars(amount) {
-    alert('⭐ Ты выбрал ' + amount + ' Stars');
+    const prices = {
+        50: '99 ₽',
+        100: '189 ₽',
+        250: '449 ₽',
+        500: '849 ₽',
+        1000: '1 599 ₽'
+    };
+
+    const price = prices[amount] || 'Цена уточняется';
+
+    alert(
+        '⭐ ZENVIO STARS\n\n' +
+        'Ты выбрал: ' + amount + ' Stars\n' +
+        'Цена: ' + price + '\n\n' +
+        '🛒 Следующий шаг — оформление покупки'
+    );
 }
     
   </script>
