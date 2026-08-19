@@ -479,6 +479,102 @@ function selectStars(amount) {
 
     const price = prices[amount] || 'Цена уточняется';
 
+    const oldOrder = document.getElementById('starsOrder');
+    if (oldOrder) oldOrder.remove();
+
+    const order = document.createElement('div');
+    order.id = 'starsOrder';
+
+    order.style.cssText = `
+        position:fixed;
+        inset:0;
+        z-index:10000;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:rgba(5,3,20,0.82);
+        backdrop-filter:blur(8px);
+        padding:20px;
+    `;
+
+    order.innerHTML = `
+        <div style="
+            width:100%;
+            max-width:390px;
+            background:linear-gradient(145deg,#17112b,#24134d);
+            border:1px solid #8b5cf6;
+            border-radius:28px;
+            padding:28px;
+            text-align:center;
+            box-shadow:0 0 40px rgba(139,92,246,.35);
+        ">
+
+            <div style="font-size:42px;margin-bottom:8px;">⭐</div>
+
+            <h2 style="
+                margin:0;
+                color:#ffd700;
+                font-size:26px;
+            ">ZENVIO STARS</h2>
+
+            <p style="
+                color:#aaa;
+                margin:10px 0 22px;
+            ">Твой заказ</p>
+
+            <div style="
+                background:rgba(255,255,255,.06);
+                border:1px solid rgba(255,255,255,.12);
+                border-radius:18px;
+                padding:18px;
+                margin-bottom:20px;
+            ">
+                <div style="
+                    color:white;
+                    font-size:24px;
+                    font-weight:bold;
+                ">⭐ ${amount} Stars</div>
+
+                <div style="
+                    color:#ffd700;
+                    font-size:22px;
+                    font-weight:bold;
+                    margin-top:8px;
+                ">${price}</div>
+            </div>
+
+            <button onclick="alert('💳 Оплата будет подключена следующим шагом')" style="
+                width:100%;
+                padding:15px;
+                border:0;
+                border-radius:16px;
+                background:linear-gradient(90deg,#ffd700,#ffb300);
+                color:#17112b;
+                font-size:17px;
+                font-weight:bold;
+                cursor:pointer;
+                margin-bottom:10px;
+            ">💳 Купить</button>
+
+            <button onclick="document.getElementById('starsOrder').remove()" style="
+                width:100%;
+                padding:13px;
+                border:1px solid #6d5a99;
+                border-radius:16px;
+                background:transparent;
+                color:#ccc;
+                font-size:16px;
+                cursor:pointer;
+            ">← Назад</button>
+
+        </div>
+    `;
+
+    document.body.appendChild(order);
+}
+
+    const price = prices[amount] || 'Цена уточняется';
+
     alert(
         '⭐ ZENVIO STARS\n\n' +
         'Ты выбрал: ' + amount + ' Stars\n' +
